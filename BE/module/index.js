@@ -1,3 +1,3 @@
-const bookController = require("./todo/todo.controller");
+const todoController = require("./todo/todo.controller");
 
 module.exports = todoController;

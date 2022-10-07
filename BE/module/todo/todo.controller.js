@@ -15,9 +15,9 @@ const createTodo = async (req, res) => {
 
 
 const getAllTodo = async (req, res) => {
-  const book = await todoServices.getAllTodo(req);
+  const todo = await todoServices.getAllTodo(req);
   res.json({
-    data: book,
+    data: todo,
   });
 };
 
