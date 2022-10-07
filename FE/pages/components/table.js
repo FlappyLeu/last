@@ -31,10 +31,10 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-const BookList = () => {
-  const bookApi = "https://chuka.ilearn.mn/book";
+const TodoList = () => {
+  const todoApi = "https://chuka.ilearn.mn/todo";
   const fetcher = async (url) => await axios.get(url).then((res) => res.data);
-  const { data, error } = useSWR(bookApi, fetcher);
+  const { data, error } = useSWR(todoApi, fetcher);
   console.log(data);
   console.log(error);
 
@@ -43,15 +43,7 @@ const BookList = () => {
       <Table sx={{ minWidth: 200 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell align="center">Name</StyledTableCell>
-            <StyledTableCell align="center">Code</StyledTableCell>
-            <StyledTableCell align="center">Price</StyledTableCell>
-            <StyledTableCell align="center">Authors</StyledTableCell>
-            <StyledTableCell align="center">ISBN</StyledTableCell>
-            <StyledTableCell align="center">Publisher</StyledTableCell>
-            <StyledTableCell align="center">Published on</StyledTableCell>
-            <StyledTableCell align="center">EDIT</StyledTableCell>
-            <StyledTableCell align="center">DELETE</StyledTableCell>
+            <StyledTableCell align="center">My To do List</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -61,18 +53,6 @@ const BookList = () => {
                 <StyledTableRow>
                   <StyledTableCell align="center">
                     {d.book_name}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {d.book_name}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">{d.code}</StyledTableCell>
-                  <StyledTableCell align="center">{d.price}</StyledTableCell>
-                  <StyledTableCell align="center">{d.isbn}</StyledTableCell>
-                  <StyledTableCell align="center">
-                    {d.publisher}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {d.published_on}
                   </StyledTableCell>
                   <StyledTableCell align="center">
                     <Button variant="contained">EDIT</Button>
@@ -86,9 +66,12 @@ const BookList = () => {
               );
             })}
         </TableBody>
+        <Button variant="contained" color="primary">
+                      Add task
+                    </Button>
       </Table>
     </TableContainer>
   );
 };
 
-export default BookList;
+export default TodoList;
